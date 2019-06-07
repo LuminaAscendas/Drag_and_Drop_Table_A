@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang='en'>
+	<head>
+		<title>Table Drag And Drop A</title>
+		<meta charset="UTF-8">
+		<meta name = "viewport">
+		<link rel="stylesheet" href="css/style.css" />
+		
+		
+        <script src="jquery/jquery-1.12.2.min.js"></script>
+        <script src="jquery/jquery-ui.min.js"></script>
+        <script src="jquery/jquery.ui.touch-punch.min.js"></script>
+		
+        <script src="jquery/data.js"></script>
+        <script src="jquery/script.js"></script>
+       
+		
+
+	</head>
+	<body>	
+		<div id='main' role='main' style='display:none'></div>
+		<div id='nav' role='navigation' style='display:none'></div>
+		<h1 style='display:none'>123</h1>
+	<div id="mainContainer">
+		<div class="loadDiv">
+			<div class="loader"></div>
+		</div>
+		<div id='page_1' class='page'>
+			<div id='begin_container'>
+				<div id='page_start' role='none'></div>
+				<div class="slideImgBegin" role='img'>
+					<img alt='some human diseases transmitted by polluted water' src="images/table4-01_begin.png">
+				</div>
+				<div id='begin_btn' class="beginBtn" aria-label='begin' role='button'>Begin</div>
+				<div id='page_stop' role='none'></div>
+
+			</div>
+		</div>
+			<div id='page3_start' role='none'></div>
+		<div id='page_2' class='page'>
+<!--			<div id='page2_start'></div>-->
+			<div id='dummy_1' role='none'>???</div>
+			<div id='direction' role='none'><span style='color: #007098;'>Directions:</span> Match the disease, listed below the table, with the appropriate organism and the disease symptoms.</div>
+			<div id='tab_container'></div>
+			<div class="tableImage" role='img'><img src="images/table4-01_image.png" role='img' alt='image'></div>
+				<div id="nextBtn" class='button' role='button' aria-label='next'>Next</div>
+			<div id='page2_stop' role='none'></div>
+		</div>
+		<div class='draggable'>
+			
+			<div id ='drag_border'></div>
+			<div id='draggable_container'></div>
+			
+		</div>
+			<div id="checkBtn" class='button' role='button' aria-label='check'>Check</div>
+			<div id="tryBtn" class='button' role='button' aria-label='Try Again'>Try Again</div>
+			<div id="show_answer" class='button' role='button' aria-label='Show Answer'>Show Answer</div>
+			<div id="reset_btn" class='button' role='button' aria-label='Reset'>Reset</div>
+		<div id='page3_stop' role='none'></div>
+<script>
+		$.holdReady(true);
+		var preloadComplete=false;
+		$.getScript("./jquery/preloadjs-0.6.2.min.js", function() {
+			$.holdReady(false);
+			manifest = [
+				"images/feedback.png",
+				"images/table4-01_begin.png",
+				"images/loading.gif"
+			];
+			preload = new createjs.LoadQueue(true);
+			preload.addEventListener("progress", function() {
+				//console.log('Updating preloading progress...'+Math.round(preload.progress*100)+"%");
+			});
+			preload.addEventListener("complete", function(){
+				$('.loadDiv').fadeOut();
+			});
+			preload.setMaxConnections(5);
+			preload.loadManifest(manifest);
+		});
+		
+</script>
+<script type="text/javascript" src="jquery/preloadjs-0.6.2.min.js"></script>
+<script src="jquery/fitToScreen.js"></script>
+			
+			
+			
+			</div>
+		</div>
+	</body>
+</html>
+	
