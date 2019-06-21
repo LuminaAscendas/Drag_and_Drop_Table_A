@@ -67,6 +67,7 @@ body
     font-family: 'SourceSansPro-Regular';
     font-size: 14px;
     margin: 0 auto;
+	overflow-x:hidden;
 }
 body:not(.show-focus-outlines) button:focus, body:not(.show-focus-outlines) [tabindex]:focus {
      outline: none;
@@ -863,20 +864,24 @@ top: 6px;
 }
 */
 @media screen and (max-width: 761px) {
+/*
 	#direction_text{
 		width:100% !important;
 	};
 	#whole_container{
 		width:100% !important;
 	};
+*/
 	
 }
 @media screen and (max-device-width: 420px) {
+/*
 	#direction_text{
 		width:100% !important;
 	};
 	#whole_container{
 		width:100% !important;
 	};
+*/
 }
 
