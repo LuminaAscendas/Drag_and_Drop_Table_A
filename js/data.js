@@ -1,15 +1,16 @@
-data = [{
+var data = [{
+    "headTitle": "Drag_and_Drop_Table_A",
     "direction": "Directions:",
     "directionText": "Match the disease, listed below the table, with the appropriate organism and the disease symptoms.",
     "tableInfo": [{
         "tableHeading": ["Disease", "Type of organism", "Symptoms"],
-        "droppableRow": "rowPart1",
-        "tableData": [{
+        "tableData": [
+		{
             "col1Text": "Bacterium",
             "col2Text": "Severe diarrhea, vomiting; fluid loss of as much as 20 quarts per day causes cramps and collapse",
             "correctAnswer": "Cholera",
-            "height": "46px"
-        }, {
+            "height": "46px"    
+        },{
             "col1Text": "Bacterium",
             "col2Text": "Infection of the colon causes painful diarrhea with mucus and blood in the stools; abdominal pain",
             "correctAnswer": "Dysentery",
