@@ -1,70 +1,105 @@
 <!DOCTYPE html>
-<html lang='en'>
-	<head>
-		<title>Table Drag And Drop A</title>
-		<meta charset="UTF-8">
-		<meta name = "viewport">
-		<link rel="stylesheet" href="css/style.css" />
+<html lang="en">
+<head >
+    <title>Drag and Drop Table A</title>
+	 <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, minimal-ui">
+<!--    <meta charset="UTF-8" name='viewport' content="width=device-width, initial-scale=1">-->
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/jquery.ui.touch-punch.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/activity.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<a href='#begin_btn'  style='position:absolute;top:-5000px'>123</a>
+	<div id='whole_container' >
 		
-		
-        <script src="jquery/jquery-1.12.2.min.js"></script>
-        <script src="jquery/jquery-ui.min.js"></script>
-        <script src="jquery/jquery.ui.touch-punch.min.js"></script>
-		
-        <script src="jquery/data.js"></script>
-        <script src="jquery/script.js"></script>
-       
-		
-
-	</head>
-	<body>	
-		<div id='main' role='main' style='display:none'></div>
-		<div id='nav' role='navigation' style='display:none'></div>
-		<h1 style='display:none'>123</h1>
-	<div id="mainContainer">
+		<div class='dummy_div' role='none'></div>
+		<div id='dummy_1' role='none'>???</div>
+		<div id='dummy_no' role='none'>???</div>
+		<div id="direction_text" role='none' aria-label='Direction: Match the disease, listed below the table, with the appropriate organism and the disease symptoms.'><span class="direction">Direction:</span> Match the disease, listed below the table, with the appropriate organism and the disease symptoms.</div>
+	
+		<div id='containment_container'></div>
+	
+    <div class="mainContainerR" id='main_container' >
+<!--		loader-->
 		<div class="loadDiv">
 			<div class="loader"></div>
-		</div>
-		<div id='page_1' class='page'>
-			<div id='begin_container'>
-				<div id='page_start' role='none'></div>
-				<div class="slideImgBegin" role='img'>
-					<img alt='some human diseases transmitted by polluted water' src="images/table4-01_begin.png">
+	 	</div>
+<!--	beginpage-->
+			<div class="beginPage" style="display: block;">
+				<div id='begin_dummy_1' role='none'></div>
+				<div id="midDivBegin">
+					<div class="slideImgBegin" role='none'>
+						<img role='img' src="images/table4-01_begin.png" alt='Some human disease transmitted by polluted water.'/>
+					</div>
+					<button id='begin_btn' class="beginBtn" id='begin_btn'>Begin</button >
+					<div id='begin_dummy_2' role='none'></div>
 				</div>
-				<div id='begin_btn' class="beginBtn" aria-label='begin' role='button'>Begin</div>
-				<div id='page_stop' role='none'></div>
-
+			</div>	
+<!--	page_1-->	
+		<div id='page_1' class='page'>
+			
+			<div id='show_table'></div>
+			<img  role='img' class='image_table' src="images/table4-01_image.png" alt='image table'/>
+			<button id='next_btn' role='button' type="button" class="beginBtn" aria-label='Next'>Next</button> 
+			<div id='dummy_2'>???</div>
+		</div>
+<!--		page_2-->
+		
+		<div id='page_2' class='page' >
+			
+          <div class="nano div1">
+            <div class="nano-content">
+                    <div class="quizeSection"> 
+                        <div class="droppable">
+                        </div>
+							<img role='img' class='image_table' src="images/table4-01_image.png" alt='image table graphic'/>
+                  </div>
+            </div>              
+			<table class='footer hide'>
+				<tbody>
+<!--
+					<tr role="application"  style="width:9%;height: 100%;">
+						<td style="display: flex;justify-content: center;align-items: center;height: 100%;"><button type="button" id="naviLeft" class="leftArrowDisable"></button></td>
+					</tr>
+-->
+					<tr  style="width:80%;height: 100%;">
+						<td><div class="draggable">
+							
+							</div></td>
+					</tr>
+<!--
+					<tr role="application"  style="width:9%;height: 100%;">
+						<td style="display: flex;justify-content: center;align-items: center;height: 100%;"><button type="button" id="naviRight" class="rightArrowDisable"></button></td>
+					</tr>	
+-->
+				</tbody>
+			</table>    
+        </div>
+			
+			<div class="feedback" aria-hidden="true">
+				<button id='begin_btn' role='button' type="button" class="button begin">Begin</button> 
+				<button id='check_btn' role='button' type="button" class="button check">Check</button>
+				<button id='try_btn' role='button' type="button" class="button tryagain">Try Again</button>
+				<button id='show_btn' role='button' type="button" class="button showAns">Show Answers</button>
+				<button id='reset_btn' role='button' type="button" style="width:60px" class="button Reset">Reset</button>  
 			</div>
+			<div id='dummy_3'></div>
 		</div>
-			<div id='page3_start' role='none'></div>
-		<div id='page_2' class='page'>
-<!--			<div id='page2_start'></div>-->
-			<div id='dummy_1' role='none'>???</div>
-			<div id='direction' role='none'><span style='color: #007098;'>Directions:</span> Match the disease, listed below the table, with the appropriate organism and the disease symptoms.</div>
-			<div id='tab_container'></div>
-			<div class="tableImage" role='img'><img src="images/table4-01_image.png" role='img' alt='image'></div>
-				<div id="nextBtn" class='button' role='button' aria-label='next'>Next</div>
-			<div id='page2_stop' role='none'></div>
-		</div>
-		<div class='draggable'>
-			
-			<div id ='drag_border'></div>
-			<div id='draggable_container'></div>
-			
-		</div>
-			<div id="checkBtn" class='button' role='button' aria-label='check'>Check</div>
-			<div id="tryBtn" class='button' role='button' aria-label='Try Again'>Try Again</div>
-			<div id="show_answer" class='button' role='button' aria-label='Show Answer'>Show Answer</div>
-			<div id="reset_btn" class='button' role='button' aria-label='Reset'>Reset</div>
-		<div id='page3_stop' role='none'></div>
-<script>
+    </div>
+	
+	</div>
+	<script>
 		$.holdReady(true);
 		var preloadComplete=false;
-		$.getScript("./jquery/preloadjs-0.6.2.min.js", function() {
+		$.getScript("./js/preloadjs-0.6.2.min.js", function() {
 			$.holdReady(false);
 			manifest = [
 				"images/feedback.png",
-				"images/table4-01_begin.png",
+				"images/14-1.png",
 				"images/loading.gif"
 			];
 			preload = new createjs.LoadQueue(true);
@@ -77,15 +112,9 @@
 			preload.setMaxConnections(5);
 			preload.loadManifest(manifest);
 		});
-		
 </script>
-<script type="text/javascript" src="jquery/preloadjs-0.6.2.min.js"></script>
-<script src="jquery/fitToScreen.js"></script>
-			
-			
-			
-			</div>
-		</div>
-	</body>
+<script type="text/javascript" src="js/preloadjs-0.6.2.min.js"></script>
+<script type="text/javascript" src="js/fitToScreen.js"></script>
+</body>
+
 </html>
-	
