@@ -3,8 +3,8 @@
 <head >
     <title>Drag and Drop Table A</title>
 	 <meta charset="utf-8" />
-<!--	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=5.0,minimum-scale=1.0, minimal-ui">-->
-    <meta charset="UTF-8" name='viewport' content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1 user-scalable=0">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=5.0,minimum-scale=1.0, minimal-ui">
+<!--    <meta charset="UTF-8" name='viewport' content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1 user-scalable=0">-->
     <script src="js/jquery-1.10.2.js"></script>
     <script src="js/jquery-ui.js"></script>
     <script src="js/jquery.ui.touch-punch.min.js"></script>
@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
+	<div id='whole_container' >
 	<a href='#begin_btn'  style='position:absolute;top:-5000px'>123</a>
 	<div class='dummy_div' role='none'></div>
 	<div id='dummy_1' role='none'>???</div>
@@ -20,7 +21,6 @@
 	<div id='text_container'>
 		<div id="direction_text" role='none' aria-label='Direction: Match the disease, listed below the table, with the appropriate organism and the disease symptoms.'><span class="direction">Direction:</span> Match the disease, listed below the table, with the appropriate organism and the disease symptoms.</div>
 	</div>
-	<div id='whole_container' >
 		
 	
 	
@@ -82,7 +82,7 @@
 			</table>    
         </div>
 			
-			<div class="feedback" aria-hidden="true">
+			<div class="feedback">
 				<button id='begin_btn' role='button' type="button" class="button begin">Begin</button> 
 				<button id='check_btn' role='button' type="button" class="button check">Check</button>
 				<button id='try_btn' role='button' type="button" class="button tryagain">Try Again</button>

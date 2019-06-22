@@ -83,7 +83,7 @@ body:not(.show-focus-outlines) button:focus, body:not(.show-focus-outlines) [tab
     position: relative;
 /*    left: 0;*/
 /*    right: 0;*/
-    width: 751px;
+    width: 800px;
 	top:30px;
 /*	overflow-x:hidden;*/
 /*	top:30px;*/
@@ -93,7 +93,7 @@ body
     font-family: 'SourceSansPro-Regular';
     font-size: 14px;
     margin: 0 auto;
-	overflow-x: hidden;
+/*	overflow-x: hidden;*/
 	
 }
 #dummy_1,#dummy_no,#dummy_2,.dummy_div{
@@ -220,7 +220,7 @@ ul{
 
 }
 #page_1{
-	overflow:hidden;
+/*	overflow:hidden;*/
 }
 .RowHead .col{
     background-color: #007098;
@@ -258,11 +258,11 @@ ul{
   height: 5px;
 }
 .Row.RowLastcol .lastpart1{
-  width: 18.5%;
+  width: 18.7%;
   border-right: 1px solid #fff;
 }
 .Row.RowLastcol .lastpart2{
-  width: 22%;
+  width: 22.2%;
   border-right: 1px solid #fff;
 }
 .Row.RowLastcol .lastpart3{
@@ -621,7 +621,7 @@ div.dropSpot {
 }
 
 .footer {
-    height: 100%;
+    height: 105px;
     /* margin: 15px auto auto; */
     position: relative;
     width: 751px;
@@ -754,6 +754,9 @@ top: 6px;
 #text_container{
 	width:751px
 }
+.Row:first-child { 
+  border-bottom: 0px solid red;
+}
 .quesText {
   clear: both;
   display: block;
@@ -766,13 +769,18 @@ top: 6px;
 /*	border:1px solid green;*/
 	position: absolute;
 	height: 800px;
-	overflow:hidden;
+	width:800px;
+/*	overflow:hidden;*/
 };
+
 @media screen and (max-device-width: 420px) {
 	#direction_text{
 		width:100% !important;
 	}
 	#text_container {
+		width: 100% !important;
+	}
+	#whole_container{
 		width: 100% !important;
 	}
 
@@ -782,6 +790,9 @@ top: 6px;
 		width:100% !important;
 	}
 	#text_container {
+		width: 100% !important;
+	}
+	#whole_container{
 		width: 100% !important;
 	}
 

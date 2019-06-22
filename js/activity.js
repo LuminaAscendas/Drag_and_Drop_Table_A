@@ -72,11 +72,12 @@ var set_tab=1;
 			if (/MSIE 10/i.test(navigator.userAgent) || /MSIE 9/i.test(navigator.userAgent) || /rv:11.0/i.test(navigator.userAgent) ||/Edge\/\d./i.test(navigator.userAgent)) {
 				//$('#whole_container').removeAttr('role');
 				$('#whole_container').attr('role','application');
+				$('.rowPart1,.rowPart2,.rowPart3').attr('role','application');
 			}else{
 				$('#whole_container').attr('role','application');
 			}
 			$('#dummy_1').focus();
-			$('#direction_text').removeAttr('role')
+//			$('#direction_text').removeAttr('role')
 //			$('#whole_container').removeAttr('role');
 			//$(".tabindex").addClass('active');
 //			setTimeout(function(){
@@ -94,6 +95,7 @@ var set_tab=1;
 			$('.rowPart1,.rowPart2,.rowPart3').attr('role','text');
 			$('#whole_container').removeAttr('role');
 			$('.feedback').removeAttr('aria-hidden');
+			
 //			alert()
 		}
 		})
@@ -277,7 +279,7 @@ var set_tab=1;
 			console.log(j)
                 oTable1+='<div class="clearfloat"></div>'+
                           '<div class="Row Rowcol" >'+
-                            '<div class="drop_container" style="height:' + tempArray1[j][3]+ ';background-color:#fff"><div dropped="false" height_cont="'+tempArray1[j][3].split('px')[0]+'" aria-label="'+tempArray1[j][2]+'" role="none" class="rowPart1 innercol " style="height:' + tempArray1[j][3]+ ';z-index:'+(j+1)+'" id="dropSpot_'+j+'" value="'+tempArray1[j][2]+'">'+
+                            '<div id="drop_'+j+'" class="drop_container" style="height:' + tempArray1[j][3]+ ';background-color:#fff"><div dropped="false" height_cont="'+tempArray1[j][3].split('px')[0]+'" aria-label="'+tempArray1[j][2]+'" role="none" class="rowPart1 innercol " style="height:' + tempArray1[j][3]+ ';z-index:'+(j+1)+'" id="dropSpot_'+j+'" value="'+tempArray1[j][2]+'">'+
                                     tempArray1[j][2]+
                             '</div></div>'+
 //                            '<div aria-label="'+tempArray1[j][0]+'" role="none" class="rowPart2 innercol " style="height:' + tempArray1[j][3] + '">'+
@@ -341,7 +343,7 @@ var set_tab=1;
         $(".tryagain").attr("aria-label", "Your answers are incorrect. To try again, press the Enter or Space bar key.");
         $(".showAns").attr("aria-label", "Sorry! your answers are incorrect. To listen the correct answers, press the Enter or Space bar key. To reset and try the question again, press Tab key followed by Enter or Space bar key.");
         $(".Reset").attr("aria-label", "To reset and try the question again, press Enter or Space bar key.");
-        $(".quizeSection").attr("aria-label", " To explore the interactivity press tab key.");
+//        $(".quizeSection").attr("aria-label", " To explore the interactivity press tab key.");
         $("#naviLeft").attr('aria-label', 'previous options')
         $("#naviRight").attr('aria-label', 'next options');
 		var containmentArea = $('#containment_container');
@@ -469,6 +471,7 @@ var set_tab=1;
 					   $('#gray_'+DragID.split('_')[1]).hide();
 				   }	
 					$("#" + DragID).parent().attr('aria-label',$(this).text());
+					
 					$('.dragSpot[dragged="true"]').removeAttr("tabindex").removeClass("tabindex");
 //					alert('1')
                 } else {
@@ -533,8 +536,8 @@ var set_tab=1;
 				{					
 					var oldId = $(this).children().attr('id');
 					var oldval = $(this).children().attr('value');						
-					console.log(oldval+" :: ");
 					var num = oldId.split('_')[1];
+//					console.log(num+" :: ");
 					$('#dragSpot_'+num+'_td').append($(this).children());
 					$('#gray_'+num).css('display','none');						
 					$('#dragSpot_'+num+'_td').find('.ui-draggable').attr('dragged','false');
@@ -556,7 +559,21 @@ var set_tab=1;
 					//ctId.addClass('dragSpot');
 				},50)
 					$(this).attr("dropped", 'true').attr('aria-label', $(this).text() );
-					$('.dragSpot[dragged="true"]').removeAttr("tabindex").removeClass("tabindex");				
+					$('.dragSpot[dragged="true"]').removeAttr("tabindex").removeClass("tabindex");	
+				
+//				for(i=0;i<=$('.dropSpotAnsWrapper').size();i++){
+//				//var new_height = $('#dropSpot_'+i).outerHeight()/scale
+////				$('#dropSpot_'+i).css('height',$('#dropSpot_'+i).attr('height_cont')*scale+'px');
+//				if( /Android|webOS|iPhone|iPad|iPod|Opera Mini/i.test(navigator.userAgent) ) {
+//					$('#dragSpot_'+i).attr('aria-hidden','true')	
+//				}
+//			}
+//				console.log(DragID)
+//				if( /Android|webOS|iPhone|iPad|iPod|Opera Mini/i.test(navigator.userAgent) ) {
+//					$(this).removeAttr('tabindex');	
+//					$(this).removeAttr('aria-label');	
+//				}
+				
             },
             over: function(event, ui) {
                 dropHover = true;				
@@ -672,7 +689,6 @@ var set_tab=1;
             $('.droppable .Rowcol .rowPart1').html('').addClass('dropSpotAnsWrapper tabindex').attr('aria-label','To select the box by using spacebar or enter key');
             $(".droppable .dropSpotAnsWrapper").droppable(optionsDrop);
             $(".footer").removeClass('hide');
-            set_tabindex();
             $(".rowPart1").unbind().bind('keydown', handleDragByKey);
 //            setTimeout(function() {
 //                if (event.type == "keydown") {
@@ -681,6 +697,7 @@ var set_tab=1;
 //                    $('.rowPart1[dropped="false"]').first().focus();
 //                }
 //            }, 100);
+            set_tabindex();
 		   resizeApp()
         });
 
@@ -782,6 +799,7 @@ var set_tab=1;
         $(".droppable").empty();
         $(".draggable").empty();
         $(".footer").addClass('hide');
+		$('.drop_container').css('background-color','#fff');
         oTable = "";
         oTable1 = "";
         init();
@@ -903,6 +921,7 @@ var set_tab=1;
 		for(i=0;i<=OriginalAns.length;i++){
 			$('#dropSpot_'+i).attr('aria-label',OriginalAns[i]);
 		}
+		$('.drop_container').css('background-color','rgb(240, 240, 240)')
     }
 
 
@@ -943,6 +962,7 @@ var Correct = 0;
             if (tempVal == userVal) {
                 Correct++;
                 $(".droppable #" + "dropSpot_" + i).removeClass('dropSpotAnsWrapper');
+				$('#drop_'+i).css('background-color','#f0f0f0')
                 $(".droppable #" + "dropSpot_" + i).html(tempVal);
 				$(".droppable #" + "dropSpot_" + i).droppable({disabled: true});
 //				$(".droppable #" + "dropSpot_" + i)
@@ -1237,7 +1257,7 @@ var Correct = 0;
             $('.rowPart1[dropped="false"]').first().focus();
             EnableSubmit(event);
             set_tabindex();
-			alert()
+//			alert()
 //            $(this).removeAttr("tabindex");
 //			console.log($(this))
 //			alert();
