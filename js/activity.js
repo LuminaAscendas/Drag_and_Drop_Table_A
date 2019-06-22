@@ -274,12 +274,12 @@ var set_tab=1;
 ////					   },100)
 //        	}	
 			 for(var j=0;j< tempArray1.length;j++){
-			console.log(tempArray1[j][3])
+			console.log(j)
                 oTable1+='<div class="clearfloat"></div>'+
                           '<div class="Row Rowcol" >'+
-                            '<div dropped="false" aria-label="'+tempArray1[j][2]+'" role="none" class="rowPart1 innercol " style="height:' + tempArray1[j][3] + '" id="dropSpot_'+j+'" value="'+tempArray1[j][2]+'">'+
+                            '<div class="drop_container" style="height:' + tempArray1[j][3]+ ';background-color:#fff"><div dropped="false" height_cont="'+tempArray1[j][3].split('px')[0]+'" aria-label="'+tempArray1[j][2]+'" role="none" class="rowPart1 innercol " style="height:' + tempArray1[j][3]+ ';z-index:'+(j+1)+'" id="dropSpot_'+j+'" value="'+tempArray1[j][2]+'">'+
                                     tempArray1[j][2]+
-                            '</div>'+
+                            '</div></div>'+
 //                            '<div aria-label="'+tempArray1[j][0]+'" role="none" class="rowPart2 innercol " style="height:' + tempArray1[j][3] + '">'+
 //                                tempArray1[j][0]+
 //                            '</div>'+
@@ -306,7 +306,7 @@ var set_tab=1;
 		
 		setTimeout(function(){
 		$(".dropSpotAnsWrapper").each(function( index ) {
-			console.log(index)
+			//console.log(index)
 			//$('#dropSpot'+index).html('<span>'+$('#dropSpot'+index).attr('aria-label')+'</span>');
   			//console.log( index + ": " + $( this ).text() );
 		});
@@ -507,7 +507,7 @@ var set_tab=1;
 				
 //					$('.dropSpotAnsWrapper').children().length			
 				
-				console.log('stop')
+				
             }
         };
 		
@@ -524,13 +524,16 @@ var set_tab=1;
 
 		});
         optionsDrop = {
-            tolerance: "intersect",            
-            drop: function(event, ui) {				
-				
+            tolerance: "intersect",  
+			greedy: true,	
+            drop: function(event, ui) {
+			event.preventDefault();	
+			event.stopPropagation();
 			if($(this).children().length > 0)
 				{					
 					var oldId = $(this).children().attr('id');
 					var oldval = $(this).children().attr('value');						
+					console.log(oldval+" :: ");
 					var num = oldId.split('_')[1];
 					$('#dragSpot_'+num+'_td').append($(this).children());
 					$('#gray_'+num).css('display','none');						
@@ -541,24 +544,23 @@ var set_tab=1;
                 $(this).html($(ui.draggable));
 				$(this).children().css({'top':'0px','left':'0px','margin':'auto'})
 				var ctId = $(this).children(); 
-				ctId.removeClass('dragSpot');
+				ctId.removeClass('dragSpot');				
                 AnsDropped[Number(DragID.replace("dragSpot_", ""))] = DragID;
                 EnableSubmit(event);               
                 set = 1;                
                 $("#" + DragID).attr('dragged','true');
+				
 				setTimeout(function(){
 					$('#gray_'+(DragID).split('_')[1]).show()//.css({'display':'block'})
 					//ctId.removeClass('dragSpot');
 					//ctId.addClass('dragSpot');
 				},50)
 					$(this).attr("dropped", 'true').attr('aria-label', $(this).text() );
-					$('.dragSpot[dragged="true"]').removeAttr("tabindex").removeClass("tabindex");
-				return;
-
+					$('.dragSpot[dragged="true"]').removeAttr("tabindex").removeClass("tabindex");				
             },
             over: function(event, ui) {
-                dropHover = true;
-				//console.log($(this).attr('id'));
+                dropHover = true;				
+				console.log($(this).attr('id'));
             },
             out: function(event, ui) {
                 dropHover = false;
