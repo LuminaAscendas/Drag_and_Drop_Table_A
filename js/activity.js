@@ -63,7 +63,7 @@ var set_tab=1;
 //				alert('123');
 //			},1000)
 //			setTimeout(function(){
-//				alert();
+//				;
 //				$('#direction_text').focus();
 //			},500)
 //			$('#whole_container').attr('role','application');
@@ -76,11 +76,11 @@ var set_tab=1;
 				$('#whole_container').attr('role','application');
 			}
 			$('#dummy_1').focus();
-			$('#direction_text').removeAttr('role')
+//			$('#direction_text').removeAttr('role')
 //			$('#whole_container').removeAttr('role');
 			//$(".tabindex").addClass('active');
 //			setTimeout(function(){
-////				alert();
+////				;
 //			},100)
 			
 //			setTimeout(function(){
@@ -94,7 +94,8 @@ var set_tab=1;
 			$('.rowPart1,.rowPart2,.rowPart3').attr('role','text');
 			$('#whole_container').removeAttr('role');
 			$('.feedback').removeAttr('aria-hidden');
-//			alert()
+			
+//			
 		}
 		})
 		
@@ -111,7 +112,7 @@ var set_tab=1;
 //			setTimeout(function(){
 				set_tabindex();
 //			},10)
-//				alert();
+//				;
 //			},1000)
 //			$('#show_table')
 //			$('.tabindex').eq(0).focus();
@@ -124,7 +125,7 @@ var set_tab=1;
 				$('.rowPart1,.rowPart2,.rowPart3').attr('role','text');
 				$('#whole_container').removeAttr('role');
 				$('.feedback').removeAttr('aria-hidden');
-//			alert()
+//			
 		}
 			resizeApp()
 		})
@@ -146,7 +147,7 @@ var set_tab=1;
     document.addEventListener('click', function(event) {
         $('body').removeClass('show-focus-outlines');
         $(".tabindex").removeClass('active');
-//		alert();
+//		;
     });
 
     function EnableSubmit(event) {
@@ -166,7 +167,7 @@ var set_tab=1;
             $(".feedback > button").hide();
 			
             setTimeout(function() {
-				//alert()
+				//
                 $('.check').removeClass('disabled').addClass('tabindex').attr('aria-hidden', 'false');
                 $('.check').css('cursor', 'pointer');
                 $('.check').css('pointer-events', 'auto');
@@ -231,7 +232,7 @@ var set_tab=1;
         oTable += '<div class="Row RowHead">';
         for (var i = 0; i < data[0].tableInfo[0].tableHeading.length; i++) {
 			console.log(data[0].tableInfo[0].tableHeading[i])
-            oTable += '<div  aria-label="'+data[0].tableInfo[0].tableHeading[i]+'" class=" col rowPart' + Number(4 - i) + '">' + data[0].tableInfo[0].tableHeading[i] + "</div>";
+            oTable += '<div role="none" aria-label="'+data[0].tableInfo[0].tableHeading[i]+'" class=" col rowPart' + Number(4 - i) + '">' + data[0].tableInfo[0].tableHeading[i] + "</div>";
         }
         oTable += "</div>";
 
@@ -277,13 +278,13 @@ var set_tab=1;
 			console.log(j)
                 oTable1+='<div class="clearfloat"></div>'+
                           '<div class="Row Rowcol" >'+
-                            '<div class="drop_container" style="height:' + tempArray1[j][3]+ ';background-color:#fff"><div dropped="false" height_cont="'+tempArray1[j][3].split('px')[0]+'" aria-label="'+tempArray1[j][2]+'" role="none" class="rowPart1 innercol " style="height:' + tempArray1[j][3]+ ';z-index:'+(j+1)+'" id="dropSpot_'+j+'" value="'+tempArray1[j][2]+'">'+
+                            '<div id="drop_'+j+'" role="none" class="drop_container" style="height:' + tempArray1[j][3]+ ';background-color:#fff"><div dropped="false" height_cont="'+tempArray1[j][3].split('px')[0]+'" aria-label="'+tempArray1[j][2]+'"  class="rowPart1 innercol " style="height:' + tempArray1[j][3]+ ';z-index:'+(j+1)+'" role="none" id="dropSpot_'+j+'" value="'+tempArray1[j][2]+'">'+
                                     tempArray1[j][2]+
                             '</div></div>'+
 //                            '<div aria-label="'+tempArray1[j][0]+'" role="none" class="rowPart2 innercol " style="height:' + tempArray1[j][3] + '">'+
 //                                tempArray1[j][0]+
 //                            '</div>'+
-					 		'<div dropped="false" role="none" aria-label="'+tempArray1[j][0].replace(/<br\s*\/?>/gi,' ')+'"  class="rowPart2 innercol "  style="height:' + tempArray1[j][3] + '" >'+
+					 		'<div dropped="false" role="none"  aria-label="'+tempArray1[j][0].replace(/<br\s*\/?>/gi,' ')+'"  class="rowPart2 innercol "  style="height:' + tempArray1[j][3] + '" >'+
                             tempArray1[j][0]+
                             '</div>'+
                             '<div role="none" aria-label="'+tempArray1[j][1].replace(/<br\s*\/?>/gi,' ')+'"  class="rowPart3 innercol "  style="height:' + tempArray1[j][3] + '" >'+
@@ -314,7 +315,7 @@ var set_tab=1;
         oTable1 = oTable + oTable1;
 
         $(".droppable").html(oTable1);
-        $("#show_table").append(oTable1);
+       //$("#show_table").append(oTable1);
 
         CorrectOptionArray = shuffle(CorrectOptionArray);
         var j = 0;
@@ -324,7 +325,7 @@ var set_tab=1;
                 DragSet += '<div class="frame headerFrame' + j + '">';
                 j++;
             }
-            DragSet += '<div role="none" id="dragSpot_' + i + '_td" class="dragSpotWrapper"><div id="dragSpot_' + i + '" class="box dragSpot " value="' + CorrectOptionArray[i] + '" dragged="false" aria-label="'+CorrectOptionArray[i].replace(/[^a-zA-Z ]/g, "")+'">' + CorrectOptionArray[i] + '</div><div class="box dragSpot1 grayed" id="gray_' + i + '">' + CorrectOptionArray[i] + '</div></div>';
+            DragSet += '<div  id="dragSpot_' + i + '_td" class="dragSpotWrapper"><div id="dragSpot_' + i + '" class="box dragSpot " value="' + CorrectOptionArray[i] + '" role="none" dragged="false" aria-label="'+CorrectOptionArray[i].replace(/[^a-zA-Z ]/g, "")+'">' + CorrectOptionArray[i] + '</div><div class="box dragSpot1 grayed" id="gray_' + i + '">' + CorrectOptionArray[i] + '</div></div>';
 
             if (i % CorrectOptionArray.length == 9) {
                 DragSet += '</div>';
@@ -378,7 +379,7 @@ var set_tab=1;
                             "left": "0px",
                             "top": "0px"
                         });
-//						alert()
+//						
                         var parentDivId = $(this).attr("id")+"_td";
 //						console.log(parentDivId)
                         dragDiv.appendTo($("#"+parentDivId));
@@ -413,7 +414,7 @@ var set_tab=1;
 						//dragDiv.parent().attr('dropped','false');
 //						$(this).parent().attr('dropped','false');
 //						$(this).parent().attr('aria-label','To select the box by using spacebar or enter key');
-//						alert();
+//						;
 //						if ( $('.dropSpotAnsWrapper:empty') ) { 
 //							console.log($(this).id);
 //
@@ -437,14 +438,14 @@ var set_tab=1;
                 //console.log("start", set);
 				
 //				$('html').blur();
-//				alert()
+//				
             },
 //			
 			
             drag: function(event, ui) {
 				ui.position.left = ui.position.left / scale;
 				ui.position.top = ui.position.top / scale;
-//				alert();
+//				;
 				if( /Android|webOS|iPhone|iPad|iPod|Opera Mini/i.test(navigator.userAgent) ) {
 					$(this).focus();
 				}
@@ -533,8 +534,8 @@ var set_tab=1;
 				{					
 					var oldId = $(this).children().attr('id');
 					var oldval = $(this).children().attr('value');						
-					console.log(oldval+" :: ");
 					var num = oldId.split('_')[1];
+//					console.log(num+" :: ");
 					$('#dragSpot_'+num+'_td').append($(this).children());
 					$('#gray_'+num).css('display','none');						
 					$('#dragSpot_'+num+'_td').find('.ui-draggable').attr('dragged','false');
@@ -556,7 +557,21 @@ var set_tab=1;
 					//ctId.addClass('dragSpot');
 				},50)
 					$(this).attr("dropped", 'true').attr('aria-label', $(this).text() );
-					$('.dragSpot[dragged="true"]').removeAttr("tabindex").removeClass("tabindex");				
+					$('.dragSpot[dragged="true"]').removeAttr("tabindex").removeClass("tabindex");	
+				
+//				for(i=0;i<=$('.dropSpotAnsWrapper').size();i++){
+//				//var new_height = $('#dropSpot_'+i).outerHeight()/scale
+////				$('#dropSpot_'+i).css('height',$('#dropSpot_'+i).attr('height_cont')*scale+'px');
+//				if( /Android|webOS|iPhone|iPad|iPod|Opera Mini/i.test(navigator.userAgent) ) {
+//					$('#dragSpot_'+i).attr('aria-hidden','true')	
+//				}
+//			}
+//				console.log(DragID)
+//				if( /Android|webOS|iPhone|iPad|iPod|Opera Mini/i.test(navigator.userAgent) ) {
+//					$('#dropSpot_'+DragID).removeAttr('tabindex');	
+//					$('#dropSpot_'+DragID).removeAttr('aria-label');	
+//				}
+				
             },
             over: function(event, ui) {
                 dropHover = true;				
@@ -568,7 +583,7 @@ var set_tab=1;
         };
 ///////////////////////////////////////////////////////////////focus//////////////////////////////////
 		$('.dummy_div').on('focus',function(){
-//			alert();
+//			;
 			$('.tabindex').eq(2).focus();
 				
 //			$('#whole_container').removeAttr('role');
@@ -580,17 +595,17 @@ var set_tab=1;
 				$('#dummy_no').hide();
 			},100)
 //			$('#direction_text').focus();
-//			alert();
+//			;
 //			setTimeout(function(){
 //				$('.tabindex').eq(0).focus();
 //			},10);
 //			$('#whole_container').removeAttr('role');
 		})
 		$('#dummy_1').on('focus',function(){
-//			alert();
+//			;
 //			
 			if($('#dummy_no').css('display')=='block'){
-//				alert()
+//				
 				$('.tabindex').eq(2).focus();
 			}else{
 //				alert('2')
@@ -631,7 +646,7 @@ var set_tab=1;
 		
 //		
 //	$('#dummy_page_1').on('focus',function(){
-////		alert();
+////		;
 //		setTimeout(function(){
 //			$('.tabindex').eq(1).focus();
 //		},10)
@@ -672,7 +687,6 @@ var set_tab=1;
             $('.droppable .Rowcol .rowPart1').html('').addClass('dropSpotAnsWrapper tabindex').attr('aria-label','To select the box by using spacebar or enter key');
             $(".droppable .dropSpotAnsWrapper").droppable(optionsDrop);
             $(".footer").removeClass('hide');
-            set_tabindex();
             $(".rowPart1").unbind().bind('keydown', handleDragByKey);
 //            setTimeout(function() {
 //                if (event.type == "keydown") {
@@ -681,6 +695,7 @@ var set_tab=1;
 //                    $('.rowPart1[dropped="false"]').first().focus();
 //                }
 //            }, 100);
+            set_tabindex();
 		   resizeApp()
         });
 
@@ -744,11 +759,11 @@ var set_tab=1;
             $(".check").css('pointer-events', 'none');
             //$(".check").show();//.attr('aria-hidden', 'true')
             $('.droppable .Rowcol .rowPart1').html('').addClass('dropSpotAnsWrapper ');
-//		alert()
+//		
             $(".droppable .dropSpotAnsWrapper").droppable(optionsDrop);
             $(".footer").removeClass('hide');
 			set_tabindex();
-//		alert()
+//		
     }
 
     function ResetFun() {
@@ -782,6 +797,7 @@ var set_tab=1;
         $(".droppable").empty();
         $(".draggable").empty();
         $(".footer").addClass('hide');
+		$('.drop_container').css('background-color','#fff');
         oTable = "";
         oTable1 = "";
         init();
@@ -903,6 +919,7 @@ var set_tab=1;
 		for(i=0;i<=OriginalAns.length;i++){
 			$('#dropSpot_'+i).attr('aria-label',OriginalAns[i]);
 		}
+		$('.drop_container').css('background-color','rgb(240, 240, 240)')
     }
 
 
@@ -943,6 +960,7 @@ var Correct = 0;
             if (tempVal == userVal) {
                 Correct++;
                 $(".droppable #" + "dropSpot_" + i).removeClass('dropSpotAnsWrapper');
+				$('#drop_'+i).css('background-color','#f0f0f0')
                 $(".droppable #" + "dropSpot_" + i).html(tempVal);
 				$(".droppable #" + "dropSpot_" + i).droppable({disabled: true});
 //				$(".droppable #" + "dropSpot_" + i)
@@ -1084,7 +1102,7 @@ var Correct = 0;
     function handleDragByKey(event) {
         if (event.type == "keydown" && event.keyCode != 13 && event.keyCode != 32) {
             return true;
-			//alert();
+			//;
         }
         	event.preventDefault();	
 		//alert('2')dropSpotPosition
@@ -1093,7 +1111,7 @@ var Correct = 0;
         prevDroppedItem = $(this).find('.dragSpot');
 		//console.log($(this).find('.dragSpot').attr());
         $('.rowPart1[dropped="false"]').each(function(index) {
-//			alert();
+//			;
             $(".dragSpot[dragged='false']").unbind('keydown').bind('keydown', handleDropByKey);
         });
         $(".headerFrame" + nSlideCounter + " .dragSpot[dragged='false']").first().focus();
@@ -1119,7 +1137,7 @@ var Correct = 0;
     function handleDropByKey(event) {
         if (event.type == "keydown" && event.keyCode != 13 && event.keyCode != 32) {
             return true;
-			//alert();
+			//;
 			
         }
         	event.preventDefault(); 
@@ -1132,13 +1150,13 @@ var Correct = 0;
 //				fnCheckNextBack()
 //		}
         if ($(dropSpotPosition).attr("dropped") != "true") {
-//			alert();
+//			;
             tempDragKey = $(this);
             tempkey = tempDragKey.parent();
             $(dropSpotPosition).html('');
             DragID = $(this).attr("id");
 			$(dropSpotPosition).attr('aria-label','To select the box by using spacebar or enter key');
-//			alert()
+//			
             $(this).append($("#" + DragID));
             AnsDropped[Number(DragID.replace("dragSpot_", ""))] = DragID;
 	
@@ -1167,13 +1185,13 @@ var Correct = 0;
             $('.rowPart1').css("outline", "none");
            
 //			setTimeout(function(){
-//				alert();
+//				;
 //			},1000)
             set_tabindex();
 			setTimeout(function(){
 				$('.rowPart1[dropped="false"]').first().focus();
 			},10)
-//			alert()
+//			
             EnableSubmit(event);
 			
 //			$('.rowPart1[dropped="false"]').first().focus();
@@ -1237,10 +1255,10 @@ var Correct = 0;
             $('.rowPart1[dropped="false"]').first().focus();
             EnableSubmit(event);
             set_tabindex();
-			alert()
+			
 //            $(this).removeAttr("tabindex");
 //			console.log($(this))
-//			alert();
+//			;
 			
         }
 		
@@ -1298,7 +1316,7 @@ var Correct = 0;
 			$('#direction_text').attr('role','text');
 			$('.rowPart1,.rowPart2,.rowPart3').attr('role','text');
 			$('#whole_container').removeAttr('role');
-//			alert()
+//			
 		}
 })(App = App || {})
 var App;

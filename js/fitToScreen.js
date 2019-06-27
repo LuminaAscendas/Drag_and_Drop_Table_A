@@ -15,7 +15,7 @@ function resizeApp(){
 	//console.log(scale)
     if(winWidth-60 < appWidth || winHeight-60 < appHeight)
         {
-	   scale = (((winWidth/appWidth)<(winHeight/appHeight))?(winWidth/appWidth):(winHeight/appHeight))-0.02//-0.15; //scaling
+	   scale = (((winWidth/appWidth)<(winHeight/appHeight))?(winWidth/appWidth):(winHeight/appHeight))-0.01//-0.15; //scaling
         }
             else {
                 
@@ -26,14 +26,14 @@ function resizeApp(){
 //		scale=0.4603448275862069;
 //	}
     //alert(scale);
-//		cont.style.msTransformOrigin = '0 0';	
-//		cont.style.msTransform = "scale("+scale+","+scale+")";
-//		cont.style.TransformOrigin = '0 0';	
-//		cont.style.Transform = "scale("+scale+")";
-//		cont.style.webkitTransformOrigin = '0 0';
-//		cont.style.webkitTransform = "scale("+scale+")";
-//		cont.style.MozTransformOrigin = '0 0';	
-//		cont.style.MozTransform = "scale("+scale+")";
+		cont.style.msTransformOrigin = '0 0';	
+		cont.style.msTransform = "scale("+scale+","+scale+")";
+		cont.style.TransformOrigin = '0 0';	
+		cont.style.Transform = "scale("+scale+")";
+		cont.style.webkitTransformOrigin = '0 0';
+		cont.style.webkitTransform = "scale("+scale+")";
+		cont.style.MozTransformOrigin = '0 0';	
+		cont.style.MozTransform = "scale("+scale+")";
 	
 	
 	
@@ -47,14 +47,14 @@ function resizeApp(){
 //		document.getElementById('containment_container').style.MozTransform = "scale("+scale+")";
 	
 	
-		document.getElementById('whole_container').style.msTransformOrigin = '0 0';	
-		document.getElementById('whole_container').style.msTransform = "scale("+scale+","+scale+")";
-		document.getElementById('whole_container').style.TransformOrigin = '0 0';	
-		document.getElementById('whole_container').style.Transform = "scale("+scale+")";
-		document.getElementById('whole_container').style.webkitTransformOrigin = '0 0';
-		document.getElementById('whole_container').style.webkitTransform = "scale("+scale+")";
-		document.getElementById('whole_container').style.MozTransformOrigin = '0 0';	
-		document.getElementById('whole_container').style.MozTransform = "scale("+scale+")";
+//		document.getElementById('whole_container').style.msTransformOrigin = '0 0';	
+//		document.getElementById('whole_container').style.msTransform = "scale("+scale+","+scale+")";
+//		document.getElementById('whole_container').style.TransformOrigin = '0 0';	
+//		document.getElementById('whole_container').style.Transform = "scale("+scale+")";
+//		document.getElementById('whole_container').style.webkitTransformOrigin = '0 0';
+//		document.getElementById('whole_container').style.webkitTransform = "scale("+scale+")";
+//		document.getElementById('whole_container').style.MozTransformOrigin = '0 0';	
+//		document.getElementById('whole_container').style.MozTransform = "scale("+scale+")";
 		var appWidth = cont.offsetWidth * scale;
 		var bodyheight = document.getElementById('page_2').height;//*scale;
 		var bodywidth = cont.offsetWidth*scale;
@@ -63,7 +63,7 @@ function resizeApp(){
 //		$('#containment_container').css('top',$('.droppable').offset().top+'px');
 //        cont.style.left = ((winWidth - appWidth )/2)+'px';
 		document.getElementById('whole_container').style.left = ((winWidth - appWidth )/2)+'px';
-		document.getElementById('direction_text').style.left = ((winWidth - appWidth )/2)+'px';
+//		document.getElementById('direction_text').style.left = ((winWidth - appWidth )/2)+'px';
 //		document.getElementById('containment_container').style.left = ((winWidth - appWidth )/2)+'px';
 //        cont_1.style.left = ((winWidth - appWidth )/2)+'px';
 //	#direction_text
@@ -78,6 +78,9 @@ function resizeApp(){
 			for(i=0;i<=$('.dropSpotAnsWrapper').size();i++){
 				//var new_height = $('#dropSpot_'+i).outerHeight()/scale
 				$('#dropSpot_'+i).css('height',$('#dropSpot_'+i).attr('height_cont')*scale+'px');
+				if( /Android|webOS|iPhone|iPad|iPod|Opera Mini/i.test(navigator.userAgent) ) {
+					$('.ui-droppable').attr('tab-index','0');	
+				}
 			}
 }
 

@@ -3,8 +3,9 @@
 <head >
     <title>Drag and Drop Table A</title>
 	 <meta charset="utf-8" />
-<!--	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=5.0,minimum-scale=1.0, minimal-ui">-->
-    <meta charset="UTF-8" name='viewport' content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1 user-scalable=0">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=5.0,minimum-scale=1.0, minimal-ui"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, maximum-scale=5.0,minimum-scale=1.0, minimal-ui">
+	<!-- <meta name="HandheldFriendly" content="true" /> -->
     <script src="js/jquery-1.10.2.js"></script>
     <script src="js/jquery-ui.js"></script>
     <script src="js/jquery.ui.touch-punch.min.js"></script>
@@ -13,6 +14,9 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
+	<div role='main' style='display:none'></div>
+	<div role='nav' style='display:none'></div>
+	<div id='whole_container' >
 	<a href='#begin_btn'  style='position:absolute;top:-5000px'>123</a>
 	<div class='dummy_div' role='none'></div>
 	<div id='dummy_1' role='none'>???</div>
@@ -20,9 +24,7 @@
 	<div id='text_container'>
 		<div id="direction_text" role='none' aria-label='Direction: Match the disease, listed below the table, with the appropriate organism and the disease symptoms.'><span class="direction">Direction:</span> Match the disease, listed below the table, with the appropriate organism and the disease symptoms.</div>
 	</div>
-	<div id='whole_container' >
 		
-	
 	
     <div class="mainContainerR" id='main_container' >
 <!--		loader-->
@@ -37,7 +39,7 @@
 					<div class="slideImgBegin" role='none'>
 						<img role='img' src="images/table4-01_begin.png" alt='Some human disease transmitted by polluted water.'/>
 					</div>
-					<button id='begin_btn' class="beginBtn" id='begin_btn'>Begin</button >
+					<button id='begin_btn' class="beginBtn">Begin</button >
 					<div id='begin_dummy_2' role='none'></div>
 				</div>
 			</div>	
@@ -55,7 +57,7 @@
 			
           <div class="nano div1">
             <div class="nano-content">
-                    <div class="quizeSection"> 
+                    <div class="quizeSection" role='none'> 
                         <div class="droppable">
                         </div>
 							<img role='img' class='image_table' src="images/table4-01_image.png" alt='image table graphic'/>
@@ -82,14 +84,14 @@
 			</table>    
         </div>
 			
-			<div class="feedback" aria-hidden="true">
-				<button id='begin_btn' role='button' type="button" class="button begin">Begin</button> 
+			<div class="feedback">
+				<button role='button' type="button" class="button begin">Begin</button>
 				<button id='check_btn' role='button' type="button" class="button check">Check</button>
 				<button id='try_btn' role='button' type="button" class="button tryagain">Try Again</button>
 				<button id='show_btn' role='button' type="button" class="button showAns">Show Answers</button>
 				<button id='reset_btn' role='button' type="button" style="width:60px" class="button Reset">Reset</button>  
 			</div>
-			<div id='dummy_3'></div>
+			<div id='dummy_3' role="none"></div>
 		</div>
     </div>
 	
