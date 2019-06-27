@@ -95,12 +95,6 @@ var set_tab=1;
 			$('.rowPart1,.rowPart2,.rowPart3').attr('role','text');
 			$('#whole_container').removeAttr('role');
 			$('.feedback').removeAttr('aria-hidden');
-			
-<<<<<<< HEAD
-//			
-=======
-//			alert()
->>>>>>> 1a22075bc6caa8f29785a627469671a1aeeff130
 		}
 		})
 		
@@ -283,11 +277,7 @@ var set_tab=1;
 			console.log(j)
                 oTable1+='<div class="clearfloat"></div>'+
                           '<div class="Row Rowcol" >'+
-<<<<<<< HEAD
-                            '<div id="drop_'+j+'" role="none" class="drop_container" style="height:' + tempArray1[j][3]+ ';background-color:#fff"><div dropped="false" height_cont="'+tempArray1[j][3].split('px')[0]+'" aria-label="'+tempArray1[j][2]+'"  class="rowPart1 innercol " style="height:' + tempArray1[j][3]+ ';z-index:'+(j+1)+'" role="none" id="dropSpot_'+j+'" value="'+tempArray1[j][2]+'">'+
-=======
                             '<div id="drop_'+j+'" class="drop_container" style="height:' + tempArray1[j][3]+ ';background-color:#fff"><div dropped="false" height_cont="'+tempArray1[j][3].split('px')[0]+'" aria-label="'+tempArray1[j][2]+'" role="none" class="rowPart1 innercol " style="height:' + tempArray1[j][3]+ ';z-index:'+(j+1)+'" id="dropSpot_'+j+'" value="'+tempArray1[j][2]+'">'+
->>>>>>> 1a22075bc6caa8f29785a627469671a1aeeff130
                                     tempArray1[j][2]+
                             '</div></div>'+
 //                            '<div aria-label="'+tempArray1[j][0]+'" role="none" class="rowPart2 innercol " style="height:' + tempArray1[j][3] + '">'+
@@ -578,13 +568,7 @@ var set_tab=1;
 //			}
 //				console.log(DragID)
 //				if( /Android|webOS|iPhone|iPad|iPod|Opera Mini/i.test(navigator.userAgent) ) {
-<<<<<<< HEAD
-//					$('#dropSpot_'+DragID).removeAttr('tabindex');	
-//					$('#dropSpot_'+DragID).removeAttr('aria-label');	
-=======
-//					$(this).removeAttr('tabindex');	
-//					$(this).removeAttr('aria-label');	
->>>>>>> 1a22075bc6caa8f29785a627469671a1aeeff130
+
 //				}
 				
             },
@@ -1270,15 +1254,7 @@ var Correct = 0;
             $('.rowPart1[dropped="false"]').first().focus();
             EnableSubmit(event);
             set_tabindex();
-<<<<<<< HEAD
-			
-=======
-//			alert()
->>>>>>> 1a22075bc6caa8f29785a627469671a1aeeff130
-//            $(this).removeAttr("tabindex");
-//			console.log($(this))
-//			;
-			
+		
         }
 		
     }
