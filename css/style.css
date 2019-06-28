@@ -369,18 +369,23 @@ ul{
   margin: 0 auto;
 /*  left: 285px;*/
   position: relative;
+/*
   top: 10px;
 	left:-9px;
+*/
 /*  float: left;*/
 }
-
+.reset_disable{
+	pointer-events: none;
+	opacity:0.25;
+}
 .Reset {
   display: none;
   width: 60px;
   margin: 0 auto;
-/*  left: 290px;*/
+  left: 10px;
   position: relative;
-   top: 10px; 
+/*   top: 10px; */
 /*  float: left;*/
 }
 .footer tr{
